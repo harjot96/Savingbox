@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "240353357660",
+    "firebase_url": "https://savingbox.firebaseio.com",
+    "project_id": "savingbox",
+    "storage_bucket": "savingbox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240353357660:android:ff7748ee377b9e495c5b99",
+        "android_client_info": {
+          "package_name": "com.rcubinity.savingbox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240353357660-ssnopf95b91cru2qkslcod43brf8r2sb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjSyOPymEiyZTOJW5P3jpnkTm-BOqAAPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240353357660-ssnopf95b91cru2qkslcod43brf8r2sb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

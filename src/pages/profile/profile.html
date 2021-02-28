@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>profile</ion-title>   
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="user-detail">
+    <div class="container">
+      <div class="row top pt-5 pl-5 pr-5 pb-0 align-items-center">
+        <div class="col-3 d-flex p-0 justify-content-center">
+          <!-- <div class="side">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </div> -->
+        </div>
+        <div class="col-6 text-center ">
+          <img class="rounded-circle" src="{{data.profile_image}}" height="80px" width="80px" *ngIf="data.profile_image && data.profile_image != null">       
+          <img class="rounded-circle" src="assets/img/profile-picc.png" width="80px" *ngIf="!data.profile_image || data.profile_image ==null">       
+          
+        </div>
+        <div class="col-3 d-flex p-0 justify-content-center">
+          <!-- <div class="side">
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="row top pt-3 pb-5">
+        <div class="col-12 text-center">
+          <p class="p-0 mb-0"><b class="text-white">{{data.name}}</b></p>
+          <small class="text-white" *ngIf="data.location && data.location != null">{{data.location}}</small>
+        </div>       
+      </div>
+
+      <div class="row below pt-3">
+         <div class="col-12 border-bottom pt-3 pb-3" *ngIf="data.email && data.email != null && data.email_status =='1'">
+            <label class="d-block mb-0">Email</label>
+            <small>{{data.email}}</small>
+         </div>
+         <div class="col-12 border-bottom pt-3 pb-3" *ngIf="data.mobile && data.mobile != null && data.mobile_status =='1'">
+           <label class="d-block mb-0">Mobile</label>
+           <small><span  *ngIf="data.dial_code && data.dial_code != null"> +{{data.dial_code}}</span>{{data.mobile}}</small>
+        </div>
+        <div class="col-12 border-bottom pt-3 pb-3" *ngIf="data.gender && data.gender != null && data.gender_status =='1'">
+           <label class="d-block mb-0">Gender</label>
+           <small>{{data.gender}}</small>
+        </div>
+        <div class="col-12 border-bottom pt-3 pb-3 " *ngIf="data.date_of_birth && data.date_of_birth != null && data.date_of_birth_status =='1'">
+           <label class="d-block mb-0">Date of Birth</label>
+           <small>{{data.date_of_birth}}</small>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  <p (click)="goTo()" *ngIf="userData?.user_id != data.user_id && data" class="chat-profile">Chat</p>
+
+</ion-content>

@@ -1,0 +1,29 @@
+
+  <ion-content>
+    <div class="forget d-flex justify-content-center align-items-center">
+  <div class="container">
+    <p class="title">One Time Verification</p>
+    <div class="logo text-center">
+      <img src="/assets/img/logo.jfif">
+    </div>
+     <div class="row">
+      <div class="col-12">
+        <form [formGroup]="otpform">
+  
+          <div class="form-group text-center">
+            <label>OTP</label>
+            <input type="number" class="form-control text-center" placeholder="1234" id="otp" formControlName="otp">
+            <p class="error" *ngIf="otpform.get('otp').hasError('required') && otpform.get('otp').touched">Enter OTP.</p>
+          </div>
+          <br /><br />
+          <button type="submit" class="form-control text-center signup-btn forgt btn btn-default btn-lg"
+            (click)="save()" [disabled]="!otpform.valid"><b>Send</b></button><br><br/>
+            <p (click)="resendotp()">Didn't get OTP? RESEND OTP</p>
+        </form><br />
+      </div>
+     </div>
+  </div>
+  </div>
+  </ion-content> 
+
+

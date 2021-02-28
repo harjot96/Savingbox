@@ -1,0 +1,37 @@
+<ion-content no-bounce>
+  <div class="d-flex flex-column">
+    <div class="flex-1">
+      <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+        <ion-slide>
+          <div class="img-outer"><img src="assets/img/slide1.jpg" class="slide-image" /></div>
+          <div class="comtent mt-5">
+            <h3>SavingsBox Summary</h3>
+            <p>This app enhances transparency among group members. Each member of the group will be able to see a real-time progress update about their Box.
+            </p>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="img-outer"><img src="assets/img/slide2.jpg" class="slide-image" /></div>
+          <div class="comtent mt-5">
+            <h3>SavingsBox Payout</h3>
+            <p>This app gives users the option to cash out their savings at the end of the box duration.
+            </p>
+          </div>
+        </ion-slide>
+        <!-- <ion-slide>
+          <div class="img-outer"><img src="assets/img/slide3.jpg" class="slide-image" /></div>
+          <div class="comtent mt-5">
+            <h3>Saving Box Shop</h3>
+            <p>This app gives users the option to cash out their savings at the end of the Box duration.
+            </p>
+          </div>
+        </ion-slide> -->
+      </ion-slides>
+    </div>
+    <div class="button-outer text-center mt-3 mb-3">
+      <button class="confirm-btn" (click)="startApp()">
+        Skip
+      </button>
+    </div>
+  </div>
+</ion-content>

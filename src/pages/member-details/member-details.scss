@@ -1,0 +1,141 @@
+ion-title{
+    text-transform: capitalize;
+}
+.modal-backdrop.show {
+    display: none;
+}
+ion-icon{
+    font-size: 40px;
+    color: red;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.modal-content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.member-inr {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+
+    .title {
+        margin: 20px 0;
+    }
+
+    img.rounded-circle {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .list-md {
+        margin: -1px 0 0;
+    }
+
+    .label-md {
+        margin: 6px 8px 6px 0;
+    }
+
+    .item-md ion-thumbnail[item-start] {
+        margin: 2px 16px 2px 0;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .item-inner {
+        padding-right: 0 !important;
+    }
+
+    .item-md ion-thumbnail {
+        min-width: auto;
+        min-height: auto;
+    }
+
+    .logo img {
+        width: 280px;
+        object-fit: contain;
+    }
+
+    p {
+        color: #000;
+        text-align: left;
+
+        b {
+            color: #fff;
+        }
+    }
+
+    .item-md .item-button {
+        border: 2px solid $primary-color;
+        padding: 9px 13px;
+        border-radius: 10px;
+        text-align: center;
+    }
+}
+
+.main-content {
+    .modal-header {
+        padding: 10px;
+
+        .close {
+            font-size: 25px !important;
+        }
+    }
+
+    h1 {
+        font-size: 80px;
+        font-weight: bolder;
+        color: #52daf2;
+        line-height: 60px;
+    }
+
+    h2 {
+        color: lightgray;
+        font-size: 35px;
+    }
+
+    div {
+        margin: 0 6px;
+        z-index: 999;
+        text-transform: capitalize;
+        .fa-plus-square {
+            font-size: 30px;
+        }
+    }
+
+    .active {
+        border: 2px solid $primary-color;
+    }
+
+    span {
+        color: #b3b3b3;
+        font-size: 16px;
+        font-weight: 400;
+        display: block;
+    }
+
+    i,
+    p {
+        color: $primary-color;
+    }
+
+    i.fa.fa-clock-o {
+        font-size: 22px;
+        padding-right: 5px;
+    }
+
+    i.fa.fa-calendar {
+        font-size: 19px;
+        padding-right: 5px;
+    }
+
+    i.fa.fa-calendar-check-o {
+        font-size: 19px;
+        padding-right: 5px;
+    }
+
+}

@@ -1,0 +1,7 @@
+{
+  "name": "savingbox",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

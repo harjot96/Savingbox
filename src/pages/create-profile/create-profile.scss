@@ -1,0 +1,71 @@
+page-create-profile {
+    .user-details {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        width: 100%;
+        .title{
+          margin: 20px 0;
+        }
+        .inner-sign{
+            flex:1;
+           }
+        .container {
+            margin: 0 auto;
+        }
+        .form-control:focus {
+            border-color: transparent;
+            box-shadow: none;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        form {
+            margin: 10px auto 0;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .logo img{
+            width: 280px;
+            object-fit: contain;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+            b{
+                color: #fff;
+            }
+        }
+        input,select,ion-datetime {
+            font-size: 15px !important;
+            width: 100%;
+            border-radius: 10px;
+            border: none;
+            box-shadow: none;
+            text-align: center;
+            height: 45px;
+            padding: 10px 10px;
+            border: 2px solid #dbdbdb !important;
+        }
+        #location {
+            color: $secondary-color;
+        }
+        #date-input {
+            color: $secondary-color;
+        }
+        .user-img {
+            img {
+                position: relative;
+            }
+            i.fa.fa-plus {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                text-align: center;
+                transform: translate(-50%,-50%);
+                color: $primary-color;
+            }
+        }
+    }
+}

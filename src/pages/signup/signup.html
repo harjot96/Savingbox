@@ -1,0 +1,39 @@
+<ion-content>
+  <form [formGroup]="signupForm" style="height: 100%;">
+  <div class="signup-outer">
+    <div class="inner-sign">
+      <div class="container">
+        <p class="title">Sign Up</p>
+        <div class="logo text-center">
+          <img src="/assets/img/logo.jfif">
+        </div>
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="form-group">
+              <input type="text" class="form-control text-center" placeholder="Name" id="email" formControlName="name">
+              <p class="error" *ngIf="signupForm.get('name').hasError('required') && signupForm.get('name').touched">Enter name.</p>
+            </div>
+            <div class="form-group text-cente">
+              <input type="email" class="form-control text-center" placeholder="Email" id="email" formControlName="email">
+              <p class="error" *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Enter email address.</p>
+              <p class="error" *ngIf="signupForm.get('email').hasError('pattern') && signupForm.get('email').touched">Invalid email address.</p>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control text-center" placeholder="Password" id="pwd" formControlName="password" (keyup)="vrifyConfirmpassword()">
+              <p class="error" *ngIf="signupForm.get('password').hasError('required') && signupForm.get('password').touched">Enter password.</p>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control text-center" placeholder="Confirm Password" id="pwd" formControlName="confirmpassword" (keyup)="vrifyConfirmpassword()">
+              <p class="error" *ngIf="signupForm.get('confirmpassword').hasError('required') && signupForm.get('confirmpassword').touched">Enter confirm password.</p>
+              <p class="error" *ngIf="passwordCheck">Password and Confirm Password not matched.</p>
+            </div><br /><br />
+            <button class="form-control text-center signup-btn btn btn-default btn-lg" [disabled]="!signupForm.valid" (click)="signup()">Register</button><br /><br />
+         
+        </div>
+      </div>
+    </div>
+  </div>
+    <p  (click)="gotoSignin()">Already have an account? <b>Sign In</b></p>
+  </div>
+</form>
+</ion-content>

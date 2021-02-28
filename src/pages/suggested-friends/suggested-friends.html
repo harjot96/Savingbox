@@ -1,0 +1,171 @@
+<ion-header>
+  <ion-navbar>
+    <ion-icon (click)="close()" style="font-size: 26px;" name="arrow-back"></ion-icon>
+    <ion-searchbar placeholder="Search Contact" (ionInput)="filterTechnologies($event)"></ion-searchbar>
+</ion-navbar>
+</ion-header>
+<ion-content>
+
+<div class="suggested-frds">
+  <!-- <div class="next" (click)="close()" > -->
+    <!-- <i class="fa fa-chevron-right" aria-hidden="true"></i> -->
+     <!-- <ion-icon name="close"></ion-icon> -->
+    <!-- <i (click)="gotoPaymentMethod()" class="fa fa-chevron-right" aria-hidden="true"></i> -->
+  <!-- </div> -->
+  <div class="container">   
+    <div class="row">
+      <div class="col-12 p-0 header d-flex justify-content-center align-items-center">
+          <ion-title class="text-center text-white" *ngIf="membersData.length > 0">Add Friends</ion-title>
+          <!-- <ion-title class="text-center text-white" *ngIf="membersData.length == 0">Suggested Friends</ion-title> -->
+      </div>
+  <!------------list 1--------->
+    <div class="col-12 pb-4" *ngIf="membersData.length>0">
+      <ion-list  *ngFor="let data of membersData">
+        <ion-item class="pl-0">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png" width="30px" *ngIf="data.profile_image==''">
+            <img class="rounded-circle" src="{{data.profile_image}}" width="30px" *ngIf="data.profile_image!=''">
+            
+          </ion-thumbnail>
+          <h2>{{data.name}}</h2>
+          <p class="p-0">{{data.email}}</p>
+          <button ion-button clear item-end class="check-button" (click)="add(data)">
+            <i class="fa fa-plus" aria-hidden="true" *ngIf="!data.selected "></i>
+            <ion-icon name="checkmark" *ngIf="data.selected == true"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-list>
+      </div>
+      <!-- *ngIf="membersData.length==0" -->
+      <div class="col-12 pb-4" *ngIf="!showFilter" >
+        <ion-list  *ngFor="let suggest of suggestData">
+          <ion-item class="pl-0" *ngIf="suggest.number!=null">
+            <ion-thumbnail item-start>
+              <img class="rounded-circle" src="assets/img/profile-picc.png" width="30px" *ngIf="suggest.photos==null">
+              <img class="rounded-circle" src="{{suggest.photos}}" width="30px" *ngIf="suggest.photos!=null">
+             </ion-thumbnail>
+            <h2 *ngIf="suggest.newname!=null">{{suggest.newname}}</h2>
+            <h2 *ngIf="suggest.newname===null">{{suggest?._objectInstance?.name?.formatted}}</h2>
+            
+            <p class="p-0">{{suggest.number}}</p>
+            <button ion-button clear item-end class="mr-0" (click)="sendsuggestion(suggest)">
+            Suggest
+            </button>
+          </ion-item>
+        </ion-list>
+        </div>
+
+
+
+
+        <div class="col-12 pb-4"  *ngIf="showFilter">
+          <ion-list  *ngFor="let suggest of fileterdata" >
+            <ion-item class="pl-0" *ngIf="suggest.number!=null">
+              <ion-thumbnail item-start>
+                <img class="rounded-circle" src="assets/img/profile-picc.png" width="30px" *ngIf="suggest.photos==null">
+                <img class="rounded-circle" src="{{suggest.photos}}" width="30px" *ngIf="suggest.photos!=null">
+               </ion-thumbnail>
+              <h2 *ngIf="suggest.newname!=null">{{suggest.newname}}</h2>
+              <h2 *ngIf="suggest.newname===null">{{suggest?._objectInstance?.name?.formatted}}</h2>
+              
+              <p class="p-0">{{suggest.number}}</p>
+              <button ion-button clear item-end class="mr-0" (click)="sendsuggestion(suggest)">
+              Suggest
+              </button>
+            </ion-item>
+          </ion-list>
+          </div>
+          <div *ngIf="showFilter && !fileterdata.length" style="    text-align: center;">
+            <img src="../../assets/img/contact.svg" alt="">
+           
+            <h3>Search contact not found</h3>
+          </div>
+    <!-- <div class="col-12 pb-4">
+      <ion-list>
+        <ion-item class="pl-0">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png">
+          </ion-thumbnail>
+          <h2>Elwin Champlin</h2>
+          <p class="p-0">Elwin-block@yahoo.com</p>
+          <button ion-button clear item-end class="mr-0"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </ion-item>
+      </ion-list>
+      </div>
+    <div class="col-12 pb-4">
+      <ion-list>
+        <ion-item class="pl-0">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png">
+          </ion-thumbnail>
+          <h2>Elwin Champlin</h2>
+          <p class="p-0">Elwin-block@yahoo.com</p>
+          <button ion-button clear item-end class="mr-0"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </ion-item>
+      </ion-list>
+      </div>
+    <div class="col-12 pb-4">
+      <ion-list>
+        <ion-item class="pl-0">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png">
+          </ion-thumbnail>
+          <h2>Elwin Champlin</h2>
+          <p class="p-0">Elwin-block@yahoo.com</p>
+          <button ion-button clear item-end class="mr-0"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </ion-item>
+      </ion-list>
+      </div>
+    <div class="col-12 pb-4">
+      <ion-list>
+        <ion-item class="pl-0">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png">
+          </ion-thumbnail>
+          <h2>Elwin Champlin</h2>
+          <p class="p-0">Elwin-block@yahoo.com</p>
+          <button ion-button clear item-end class="mr-0"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </ion-item>
+      </ion-list>
+      </div>
+    <div class="col-12 pb-4">
+      <ion-list>
+        <ion-item class="pl-0" >
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png">
+          </ion-thumbnail>
+          <h2>Elwin Champlin</h2>
+          <p class="p-0">Elwin-block@yahoo.com</p>
+          <button ion-button clear item-end class="mr-0"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </ion-item>
+      </ion-list>
+      </div>
+    <div class="col-12 pb-4">
+      <ion-list>
+        <ion-item class="pl-0">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png">
+          </ion-thumbnail>
+          <h2>Elwin Champlin</h2>
+          <p class="p-0">Elwin-block@yahoo.com</p>
+          <button ion-button clear item-end class="mr-0"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </ion-item>
+      </ion-list>
+      </div>
+    <div class="col-12 pb-4">
+      <ion-list>
+        <ion-item class="pl-0">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png">
+          </ion-thumbnail>
+          <h2>Elwin Champlin</h2>
+          <p class="p-0">Elwin-block@yahoo.com</p>
+          <button ion-button clear item-end class="mr-0"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </ion-item>
+      </ion-list>
+      </div> -->
+
+    </div>
+</div>
+</div>
+</ion-content>

@@ -1,0 +1,98 @@
+page-signin {
+    .signin-outer {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        width: 100%;
+        background-color: $primary-color;
+        .title{
+          margin: 20px 0;
+        }
+        .inner-sign{
+            flex:1;
+           }
+        .container {
+            margin: 0 auto;
+        }
+        input:focus {
+            border-color: transparent;
+            box-shadow: none;
+        }
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        form {
+            margin: 0 auto;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .logo img{
+            width: 280px;
+            object-fit: contain;
+        }
+        ::placeholder {
+            color: #b6b6b6 !important;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+            b{
+                color: #fff;
+            }
+        }
+        input {
+            font-size: 15px !important;
+            width: 100%;
+            border-radius: 10px;
+            border: none;
+            box-shadow: none;
+            height: 45px;
+            padding: 10px 10px;
+        }
+        .signin-via{
+            text-align: center;
+            width: 100%;
+            & a {
+                margin: 0 10px;
+                i {
+                    background: #fff;
+                    width: 50px;
+                    height: 50px;
+                    display: inline-grid;
+                    text-align: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    font-size: 25px;
+                }
+            }
+            a.facebk {
+                color: #4051a3 !important;
+            }
+        }
+        span {
+            position: relative;
+            color: #fff;
+            &:before {
+                position: absolute;
+                content: " ";
+                width: 35%;
+                min-width: 110px;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.4);
+                top: 9px;
+                left: 30px;
+            }
+            &:after {
+                position: absolute;
+                content: " ";
+                width: 35%;
+                min-width: 110px;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.4);
+                top: 9px;
+                right: 30px;
+            }
+        }
+    }
+}

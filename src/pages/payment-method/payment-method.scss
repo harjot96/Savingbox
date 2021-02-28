@@ -1,0 +1,108 @@
+page-payment-method {
+    ion-datetime{
+        height: 44px !important;
+        border-radius: 10px !important;
+    }
+    .datetime-text{
+        font-size: 16px;
+    }
+    .item-cover {
+        width: 0;
+        height: 0;
+        }
+    .payment-option{
+        input[type="radio"] {
+            display: none;
+            &:checked ~ label .tick {
+                display: flex;
+            }
+        }
+        label{
+        width: 80%;
+        height: 80px;
+        padding: 20px 10px;
+        text-align: center;
+        border-radius: 10px;
+        background: rgba(238, 238, 238, 0.51);
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        .tick {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            background-color: rgba(255,0,0,0.5);
+            display: none;
+            &:after {
+                content: "";
+                width: 15px;
+                height: 30px;
+                margin: auto auto;
+                border: solid white;
+                border-width: 0 5px 5px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+                display: flex;
+              }
+        }
+    }
+}
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .title{
+          margin: 20px 0;
+        }
+        .inner-sign{
+            flex:1;
+           }
+        .container {
+            margin: 0 auto;
+        }
+        .form-control:focus {
+            border-color: transparent;
+            box-shadow: none;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        form {
+            margin: 10px auto 0;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .logo img{
+            width: 280px;
+            object-fit: contain;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+            b{
+                color: #fff;
+            }
+        }
+        input,select{
+            font-size: 15px !important;
+            width: 100%;
+            border-radius: 10px;
+            border: none;
+            box-shadow: none;
+            text-align: center;
+            height: 45px;
+            padding: 10px 10px;
+            border: 2px solid #dbdbdb !important;
+        }
+        #date-input {
+            color: $secondary-color;
+        }
+    }
+}

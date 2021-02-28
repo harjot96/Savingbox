@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left >
+      <!-- <button ion-button icon-only class="my-style-for-modal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button> -->
+    </ion-buttons>
+    <ion-title>Upload Document</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="user-details" style="text-align: center;">
+    <ion-list>
+      <ion-item>
+        <!-- <ion-label></ion-label> -->
+        <ion-select name="doctype" [(ngModel)]="doctype" placeholder="Select Document Type" interface="action-sheet">
+          <ion-option value="licence">Drivers License</ion-option>
+          <ion-option value="passport">Passport</ion-option>
+          <ion-option value="stateid">State ID</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" name="idnumber" placeholder="Document Number" [(ngModel)]="idnumber">  </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="country" placeholder="Country" [(ngModel)]="country">  </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="state" placeholder="State" [(ngModel)]="state">  </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Select Issue Date" name="issueDate" [(ngModel)]="issueDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Select Expiry Date" max="2035-01-01" name="expdate" [(ngModel)]="expdate"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <div class="inner-sign" (click)="selectImage()">
+      <ion-icon name="add"  style="color:#c5b5b4; font-size: 42px;" *ngIf="imageUpload ==''"></ion-icon>
+      <!-- <button ion-button outline color="danger" style="width: 70%; margin-top: 25px;" (click)="selectImage()">Add Document</button> -->
+              <!-- <div class="form-group"  (click)="selectImage()">
+                <label>Upload Driving Liecence</label>                     
+              </div> -->
+              <img *ngIf="imageUpload !=''"
+              style="    height: 217px;
+              padding: 22px;"
+              src="{{imageUpload}}"
+              width="100%"
+            />
+    </div>
+    <button ion-button outline color="danger" style="color: #ffffff;
+    background-color: #e93a3a; width: 88%; margin-top: 25px;" (click)="upload()">Upload </button>
+  </div>
+</ion-content>

@@ -1,0 +1,160 @@
+<ion-content>
+  <div class="home-outer">
+    <div class="header d-flex align-items-center">
+      <div (click)="goTo()">
+        <img  class="rounded-circle"  *ngIf="userData?.profile_image != null && userData?.profile_image" src="{{userData?.profile_image}}" width="30px" height="31px" />
+        <img class="rounded-circle" *ngIf="userData?.profile_image == null || !userData?.profile_image" src="assets/img/profile-picc.png" width="30px" style="height:'31px' "/>
+      </div>
+      <div class="flex-1 text-center">
+        <ion-title class="text-center"><span>Box Dashboard</span></ion-title>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pt-5 mt-5 col-md-offset-3" style="margin-top: 0px !important;">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <span>
+                <!-- Tabs -->
+                <ion-segment [(ngModel)]="segmentVal" mode="md">
+                  <!-- <ul class="nav panel-tabs d-flex justify-content-around"> -->
+                  <!-- <ion-segment-button value="0" mode="ios">
+                    <li><a class="pb-2 active"  data-toggle="tab">Ongoing</a></li>
+                  </ion-segment-button> -->
+                  <ion-segment-button value="0" mode="md">
+                        <ion-label>Ongoing</ion-label>
+                  </ion-segment-button>
+                  <ion-segment-button value="1" mode="md">
+                    <ion-label>Completed</ion-label>
+                  </ion-segment-button>
+                  <!-- <ion-segment-button value="1" mode="ios">
+                    <li><a class="pb-2" data-toggle="tab">Completed</a></li>
+                  </ion-segment-button> -->
+                <!-- </ul> -->
+            </ion-segment>
+              
+               
+                  
+              
+              </span>
+            </div>
+            <div class="panel-body">
+              <div class="tab-content" [ngSwitch]="segmentVal" >
+                <div class="tab-pane active"  *ngSwitchCase="'0'">
+                  <!------------card 1-------->
+                  <div *ngIf="ongoingcycleData.length>0">
+                  <div class="box card mb-4" *ngFor="let ongoing of ongoingcycleData"> 
+                    <div class="card-body d-flex justify-content-between align-items-center" (click)="openGroup(ongoing)">
+                      <div>
+                        <h5 class="card-title">{{ongoing.title}}</h5>
+                        <p class="card-text p-0">Create Date: {{ongoing.start_date}} </p>
+                      </div>
+                      <div  *ngIf="ongoing.users.length>0" style="    display: flex;
+                        width: 115px;">
+                        <div class="imagegroup" *ngFor="let ongoingimages of ongoing.users ">
+                        <img src="{{ongoingimages.image}}" *ngIf="ongoingimages.image !=''"/>
+                        <img src="../../assets/img/profile-picc.png" *ngIf="ongoingimages.image ==''"/>
+
+                        </div>
+                        <!-- <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" /> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div  *ngIf="ongoingcycleData.length==0 && noData" class="no-data">
+                  <img src="../../assets/img/nogroup.svg" alt="">
+                  <!-- <p>No data found.</p> -->
+                  <!-- <p>To create a new box, please click on + button </p> -->
+                </div>
+                  <!-- <div class="box card mb-4">
+                    <div class="card-body d-flex justify-content-between align-items-center"  (click)="openGroup()">
+                      <div>
+                        <h5 class="card-title">Family</h5>
+                        <p class="card-text p-0">Create Date: 17 NOV 2019 </p>
+                      </div>
+                      <div class="imagegroup">
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                      </div>
+                    </div>
+                  </div>
+                 <div class="box card mb-4">
+                    <div class="card-body d-flex justify-content-between align-items-center"  (click)="openGroup()">
+                      <div>
+                        <h5 class="card-title">Relative</h5>
+                        <p class="card-text p-0">Create Date: 17 NOV 2019 </p>
+                      </div>
+                      <div class="imagegroup">
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="tab-pane" *ngSwitchCase="'1'">
+                  <!------------card 1-------->
+                  <div *ngIf="completedcycleData.length>0">
+                    <div class="box card mb-4" *ngFor="let completed of completedcycleData"> 
+                      <div class="card-body d-flex justify-content-between align-items-center" (click)="openGroup(completed)">
+                        <div>
+                          <h5 class="card-title">{{completed.title}}</h5>
+                          <p class="card-text p-0">Create Date: {{completed.created_at}} </p>
+                        </div>
+                        <div class="imagegroup" *ngIf="completed.images.length>0">
+                         
+                          <img  *ngFor="let completedimages of completed.images | slice:0:4" src="{{completedimages}}"/>
+                          <!-- <img src="assets/img/profile-picc.png" />
+                          <img src="assets/img/profile-picc.png" />
+                          <img src="assets/img/profile-picc.png" /> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div  *ngIf="ongoingcycleData.length===0 && noData" class="no-data">
+                    <img src="../../assets/img/nogroup.svg" alt="">
+                    <p>No data found.</p>
+                  </div>
+                  <!----------card 2----------->
+                  <!-- <div class="box card mb-4">
+                    <div class="card-body d-flex justify-content-between align-items-center "  (click)="openGroup()">
+                      <div>
+                        <h5 class="card-title">Relative</h5>
+                        <p class="card-text p-0">Create Date: 17 NOV 2019 </p>
+                      </div>
+                      <div class="imagegroup">
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box card mb-4">
+                    <div class="card-body d-flex justify-content-between align-items-center "  (click)="openGroup()">
+                      <div>
+                        <h5 class="card-title">Best Friend</h5>
+                        <p class="card-text p-0">Create Date: 17 NOV 2019 </p>
+                      </div>
+                      <div class="imagegroup">
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                        <img src="assets/img/profile-picc.png" />
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

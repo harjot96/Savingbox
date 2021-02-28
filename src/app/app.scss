@@ -1,0 +1,78 @@
+
+button:focus{
+    outline: none;
+    }
+$primary-color:#e54744;
+$secondary-color:#b6b6b6;
+label{
+    color:#e54744;
+    margin-bottom: 10px;
+}
+p {
+    font-size: 16px;
+}
+::placeholder {
+    color: $secondary-color !important;
+}
+.signup-btn {
+    background: #fff;
+    display: inline-block;
+    padding: 10px 10px;
+    line-height: 0;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #8a8a8a;
+    height: 45px;
+    letter-spacing: 1px;
+}
+.confirm-btn{
+    background: $primary-color;
+    display: inline-block;
+    padding: 10px 10px;
+    line-height: 0;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #fff;
+    height: 45px;
+    letter-spacing: 1px;
+}
+.flag-icon-us {
+    background-image: url("/assets/icon/flags/india.svg");
+}
+
+.flag-icon-au {
+    background-image: url("/assets/icon/flags/india.svg");
+}
+
+.flag-icon-in {
+    background-image: url("/assets/icon/flags/india.svg");
+}
+
+.flag-icon-bw {
+    background-image: url("/assets/icon/flags/india.svg");
+}
+
+.flag-icon {
+    background-size: 25px;
+    background-position: 100% center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+}
+
+.flag-icon:before {
+    content: "\00a0";
+}
+.no-data {
+    text-align: center;
+    padding: 30px;
+    font-weight: bold;
+    color: #000;
+    p{
+    font-size: 20px !important;
+    margin-top: 40px;
+    }
+}

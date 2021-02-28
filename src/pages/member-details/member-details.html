@@ -1,0 +1,177 @@
+<ion-header>
+  <ion-navbar>
+   
+    <ion-title>{{data.title}}</ion-title>
+    <!-- <ion-buttons end> -->
+      <!-- <button ion-button icon-only (click)="addRoom(data.cycle_id)">
+        <ion-icon name="add-circle"></ion-icon>
+      </button> -->
+    <!-- </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- The Modal -->
+        <!-- <div class="modal fade" id="myModal">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+             <div class="modal-header d-flex">
+                <p class="mb-0">Members</p>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <div class="modal-body">
+                <div class="member-inr">
+                 <div class="col-12 pb-4">
+                    <ion-list>
+                      <ion-item class="pl-0">
+                        <ion-thumbnail item-start>
+                          <img class="rounded-circle" src="assets/img/profile-picc.png" width="50px">
+                        </ion-thumbnail>
+                        <h2>Elwin Champlin</h2>
+                        <p class="p-0">Elwin-block@yahoo.com</p>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+
+                  <div class="col-12 pb-4">
+                    <ion-list>
+                      <ion-item class="pl-0">
+                        <ion-thumbnail item-start>
+                          <img class="rounded-circle" src="assets/img/profile-picc.png">
+                        </ion-thumbnail>
+                        <h2>Elwin Champlin</h2>
+                        <p class="p-0">Elwin-block@yahoo.com</p>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+
+                 <div class="col-12 pb-4">
+                    <ion-list>
+                      <ion-item class="pl-0">
+                        <ion-thumbnail item-start>
+                          <img class="rounded-circle" src="assets/img/profile-picc.png">
+                        </ion-thumbnail>
+                        <h2>Elwin Champlin</h2>
+                        <p class="p-0">Elwin-block@yahoo.com</p>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+
+                  <div class="col-12 pb-4">
+                    <ion-list>
+                      <ion-item class="pl-0">
+                        <ion-thumbnail item-start>
+                          <img class="rounded-circle" src="assets/img/profile-picc.png">
+                        </ion-thumbnail>
+                        <h2>Elwin Champlin</h2>
+                        <p class="p-0">Elwin-block@yahoo.com</p>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                 <div class="col-12 pb-4">
+                    <ion-list>
+                      <ion-item class="pl-0">
+                        <ion-thumbnail item-start>
+                          <img class="rounded-circle" src="assets/img/profile-picc.png">
+                        </ion-thumbnail>
+                        <h2>Elwin Champlin</h2>
+                        <p class="p-0">Elwin-block@yahoo.com</p>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                 <div class="col-12 pb-4">
+                    <ion-list>
+                      <ion-item class="pl-0">
+                        <ion-thumbnail item-start>
+                          <img class="rounded-circle" src="assets/img/profile-picc.png">
+                        </ion-thumbnail>
+                        <h2>Elwin Champlin</h2>
+                        <p class="p-0">Elwin-block@yahoo.com</p>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                </div>
+              </div>
+             </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-------main content start here------->
+  <div class="container d-flex flex-column">
+    <div class="row main-content">
+<div style="    width: 100%;
+display: flex;
+justify-content: flex-end;">
+  <ion-icon (click)="staticView()" ios="ios-trending-up" md="md-trending-up"></ion-icon>
+</div>
+      <div class="col-12 p-0 m-0 text-center">
+        <h1 >{{data.month}}</h1>
+        <h2  style="margin-top: 15px;">Contribution</h2>
+        <!-- <h1 style="font-size: 30px;
+        font-weight: bolder;
+        color: #52daf2;
+        line-height: 60px;" *ngIf="data.month==='0'">Box Starts Soon</h1> -->
+      </div>
+      <div class="col-12 pl-4">
+        <h4>Members</h4>
+      </div>
+      <div class="col-12 p-0 m-0 member-list d-flex justify-content-center align-items-top">
+        <div class="text-center" *ngFor="let user of data.users" (click)="userdetail(user.user_id)">
+          <img class="rounded-circle active" src="assets/img/profile-picc.png" width="50px"  *ngIf="user.image==null  || user.image==''" height="53px">
+          <img class="rounded-circle active" src="{{user.image}}" width="50px" *ngIf="user.image!=null && user.image!=''" height="53px">
+          <small class="mt-2 d-block">{{user.name}}</small>
+        </div>
+        <div class="more-members" (click)="presentMemberModal()" *ngIf="data.cycle_type == 'group'&&data.is_payment=='0'"> <a ><i class="fa fa-plus-square" aria-hidden="true" style="margin-top: 15px;"></i></a></div>
+        
+        <!-- <div class="text-center"><img class="rounded-circle" src="assets/img/profile-picc.png" width="50px">
+          <small class="mt-2 d-block">Elwin clein</small>
+        </div>
+        <div class="text-center"><img class="rounded-circle" src="assets/img/profile-picc.png" width="50px">
+          <small class="mt-2 d-block">Elwin clein</small>
+        </div>
+        <div class="text-center"><img class="rounded-circle" src="assets/img/profile-picc.png" width="50px">
+          <small class="mt-2 d-block">Elwin clein</small>
+        </div> -->
+        <!-- <div class="text-center">
+          <div class="moree pt-3" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-plus-square"
+              aria-hidden="true"></i></div>
+        </div> -->
+        </div>
+    
+      <div class="col-12 mt-4">
+        <span>Start Date</span>
+        <i class="fa fa-clock-o" aria-hidden="true"></i> {{cycleStart(data.start_date)}}
+      </div>
+      <div class="col-12 mt-4">
+        <span>Payout frequency</span>
+        <i class="fa fa-calendar" aria-hidden="true"></i> {{data.deliver_every}}
+      </div>
+      <div class="col-12 mt-4">
+        <span>Box Duration</span>
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{data.cycle_duration}}
+      </div>
+      <div class="col-12 mt-4">
+        <span>Box Amount</span>
+         $ {{data.amount}}
+      </div>
+      <div class="col-12 mt-4">
+        <span>Box Type</span>
+          {{data.cycle_payment_type}}
+      </div>
+      <div class="col-12 mt-5">
+        <!-- <p>{{data.payment_type}}</p> -->
+      </div>
+    </div>
+  </div>
+
+  <!-------main content ends here------->
+</ion-content>

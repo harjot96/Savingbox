@@ -1,0 +1,57 @@
+<!--
+  Generated template for the PagesAddbankPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-section">
+  <ion-navbar>
+    <!-- <ion-title><ion-icon name="arrow-back"></ion-icon> </ion-title> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<div class="logo">
+  <img src="../../assets/img/bank.svg" alt="">
+</div>
+<h4>Enter Details</h4>
+  <form  [formGroup]="addaccount">
+    <div class="form-group">
+      <label>Account Holder Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        placeholder="Account Holder Name"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group">
+      <label>Account Number</label>
+      <input
+        type="text"
+        class="form-control"
+        id="tel"
+        placeholder="Account Number"
+        formControlName="account_no"
+      />
+    </div>
+    <div class="form-group">
+      <label>Routing Number</label>
+      <input
+        type="text"
+        class="form-control"
+        id="tel"
+        placeholder="Routing Number"
+        formControlName="routing_no"
+      />
+    </div>
+    <button (click)="SaveAccount()"
+    class="form-control text-center confirm-btn btn btn-default btn-lg"
+   
+  >
+    Submit</button
+  >
+  </form>
+
+</ion-content>

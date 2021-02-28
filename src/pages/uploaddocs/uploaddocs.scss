@@ -1,0 +1,63 @@
+page-uploaddocs {
+    .inner-sign {
+        border: 1px solid #c5b5b4;
+        border-radius: 5px;
+        text-align: center;
+        margin: 20px;
+    }
+    .select-md{
+        width: 100%;
+        min-width: 100%;
+        border: 2px solid #ccc;
+        border-radius: 7px;
+        padding: 16px 5px !important;
+    }
+    .select-ios{
+        width: 100%;
+        min-width: 100%;
+        border: 2px solid #ccc;
+        border-radius: 7px;
+        padding: 16px 5px !important;
+    }
+    .list-md .item-block .item-inner{
+        border-bottom: none !important;
+    }
+    .list-ios .item-block .item-inner{
+        border-bottom: none !important;
+    }
+    .list-md .item-input:last-child{
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+    .list-ios .item-input:last-child{
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+    ion-input{
+        border: 2px solid #ccc;
+        margin-top: 16px;
+        border-radius: 7px;
+        padding: 5px;
+
+    }
+    .datetime-md{
+        width: 100%;
+        min-width: 100%;
+        text-align: center;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        margin-top: 15px;
+        padding: 16px 5px !important;
+    }
+    .datetime-ios{
+        width: 100%;
+        padding: 16px 5px !important;
+        text-align: center;
+        min-width: 100%;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+    
+
+}

@@ -1,0 +1,192 @@
+<ion-content>
+  <div class="new-cycle">
+    <div class="inner-sign">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 px-5 mt-3">
+            <h1>Create New Box</h1>
+            <form [formGroup]="newCycleForm">
+              <div class="form-group">
+              <ion-label class="label">Title</ion-label>
+
+                <input type="text" class="form-control"  formControlName="title" id="name" placeholder="Title">
+              </div>
+              <p class="profile-error" *ngIf="newCycleForm.get('title').hasError('required') && newCycleForm.get('title').touched">Enter title.</p>
+
+              <div class="form-group">
+              <ion-label class="label">Starting Date</ion-label>
+
+                <ion-datetime displayFormat="MM-DD-YYYY" formControlName="date" pickerFormat="MM-DD-YYYY" max="{{newDate}}" min="{{today}}"
+                   placeholder="Select Date"></ion-datetime>
+              </div>
+              <p class="profile-error" *ngIf="newCycleForm.get('date').hasError('required') && newCycleForm.get('date').touched">Select starting date.</p>
+
+              <div class="form-group">
+              <ion-label class="label">Payout Frequency</ion-label>
+
+                <ion-select   placeholder="How do you want your payout?" formControlName="deliver">
+                  <ion-option value="equal payout">Equal Payout</ion-option>
+                  <!-- <ion-option value="rotational">Rotational</ion-option> -->
+                </ion-select>
+              </div>
+              <p class="profile-error" *ngIf="newCycleForm.get('deliver').hasError('required') && newCycleForm.get('deliver').touched">Select Payout Frequency.</p>
+
+              <div class="form-group">
+              <ion-label class="label">Box Duration</ion-label>
+
+                <ion-select  placeholder="Select number of months" formControlName="cycledur" mode="md">
+                  <ion-option value="1">1</ion-option>
+                  <ion-option value="2">2</ion-option>
+                  <ion-option value="3">3</ion-option>
+                  <ion-option value="4">4</ion-option>
+                  <ion-option value="5">5</ion-option>
+                  <ion-option value="6">6</ion-option>
+                  <ion-option value="7">7</ion-option>
+                  <ion-option value="8">8</ion-option>
+                  <ion-option value="9">9</ion-option>
+                  <ion-option value="10">10</ion-option>
+                  <ion-option value="11">11</ion-option>
+                  <ion-option value="12">12</ion-option>
+
+                </ion-select>
+              </div>
+              <p class="profile-error" *ngIf="newCycleForm.get('cycledur').hasError('required') && newCycleForm.get('cycledur').touched">Select Box duration.</p>
+              <div class="form-group">
+                <ion-label class="label">Box Goal</ion-label>  
+                  <ion-select  placeholder="Select Box Goal" formControlName="goal" (ionChange)="boxChange($event)">
+                  <ion-option value="home imporvement">Home Improvement</ion-option>
+                  <ion-option value="travel/vacation">Travel/Vacation</ion-option>
+                  <ion-option value="education">Education</ion-option>
+                  <ion-option value="shopping">Shopping</ion-option>
+                  <ion-option value="other">Other</ion-option>  
+                  </ion-select>
+                </div>
+              <p class="profile-error" *ngIf="newCycleForm.get('goal').hasError('required') && newCycleForm.get('goal').touched">Select Box Goal.</p>
+              <div class="form-group" *ngIf="newCycleForm.value.goal == 'other'">
+                <ion-label class="label">Add Box Goal</ion-label>
+                 <input type="text" class="form-control"  formControlName="addgoal" placeholder="Add box goal">
+                </div>
+                <div *ngIf="show">
+                  <p class="profile-error" *ngIf="newCycleForm.value.goal == 'other' && newCycleForm.get('addgoal').hasError('required') && newCycleForm.get('addgoal').touched">Enter Box Goal.</p>
+                </div>  
+              <br />
+              <div class="form-group">
+                <ion-label class="label">Box Amount</ion-label>
+  <!-- <span *ngIf="showAmount">$</span> -->
+                  <input type="tel" class="form-control" style="text-align: center !important;"  formControlName="amount"  currencyMask [options]="{ prefix: '$ ', thousands: ',', decimal: '.' }"  placeholder="Box Amount in $ (ex. 50.00)" (keyup)="setAmount()">
+                </div>
+              <p class="profile-error" *ngIf="newCycleForm.get('amount').hasError('required') && newCycleForm.get('amount').touched">Please enter amount.</p>
+
+
+            </form>
+          </div>
+
+          
+
+<!--------------------------------->
+<div class="col-12 m-0 member-list">
+  <div class="d-flex justify-content-center align-items-top flex-wrap px-4" *ngIf="members_list.length>0 && cycle_type == 'group'">
+  <div class="text-center mx-2 pb-2" *ngFor="let memdata of members_list">
+    <img class="rounded-circle active" src="assets/img/profile-picc.png" width="40px" *ngIf="memdata.profile_image == '' || memdata.profile_image == null ">
+    <img class="rounded-circle active" src="{{memdata.profile_image}}" width="40px" height="40px" *ngIf="memdata.profile_image != ''">
+    <small class="mt-2 d-block">{{memdata.name}} </small>
+  </div>
+  <!-- <div class="text-center mx-2 pb-2"><img class="rounded-circle" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div>
+  <div class="text-center mx-2 pb-2"><img class="rounded-circle" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div>
+  <div class="text-center mx-2 pb-2"><img class="rounded-circle" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div>
+  <div class="text-center mx-2 pb-2"><img class="rounded-circle active" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div>
+  <div class="text-center mx-2 pb-2"><img class="rounded-circle" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div>
+  <div class="text-center mx-2 pb-2"><img class="rounded-circle" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div>
+  <div class="text-center mx-2 pb-2"><img class="rounded-circle" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div>
+  <div class="text-center mx-2 pb-2"><img class="rounded-circle" src="assets/img/profile-picc.png" width="40px">
+    <small class="mt-2 d-block">Elwin </small>
+  </div> -->
+</div>
+<!-- <div class='no-data' *ngIf="members_list.length == 0">
+  <p>No Selected Members</p>
+</div> -->
+</div>
+<ion-label style="    margin-left: 40px;" class="label">Savings plan for:</ion-label>
+ 
+<div class="col-12 ">
+<form class="d-flex justify-content-between align-items-center px-5"  radio-group [(ngModel)]="cycle_type"  [ngModelOptions]="{standalone: true}" (ionChange)="SelectedValue($event.target)">  
+  <div class="custom-control custom-checkbox mb-3">
+   <ion-radio checked="true" value="personal" mode="md"></ion-radio>
+    <ion-label>Personal Box</ion-label>
+ </div>
+  <div class="custom-control custom-checkbox mb-3">
+  <ion-radio checked="true" value="group" mode="md"></ion-radio>
+    <ion-label>Group Box</ion-label>
+ </div>
+</form>
+
+</div>
+
+<!--------------------------------->
+<div class="col-12 mt-4 mb-3 text-center" (click)="presentMemberModal()" *ngIf="cycle_type == 'group'">
+  <div class="more-members"> <a ><i class="fa fa-plus-square" aria-hidden="true"></i>Members</a></div>
+</div>
+<!--------------------------------->
+<ion-label style="    margin-left: 40px;" class="label">Contribution:</ion-label>
+ 
+<div class="col-12 ">
+<form class="d-flex justify-content-between align-items-center px-5"  radio-group [(ngModel)]="payment_cycle"  [ngModelOptions]="{standalone: true}">  
+  <div class="custom-control custom-checkbox mb-3">
+    <!-- <input type="checkbox" class="custom-control-input" id="customCheck" name="example1"> -->
+    <ion-radio checked="true" value="0" mode="md"></ion-radio>
+    <ion-label>Bi-weekly</ion-label>
+    <!-- <label class="custom-control-label" for="customCheck">Pre-Paid Month</label> -->
+
+  </div>
+  <div class="custom-control custom-checkbox mb-3">
+    <!-- <input type="checkbox" class="custom-control-input" id="customCheck1" name="example2"> -->
+    <ion-radio checked="true" value="1" mode="md"></ion-radio>
+    <ion-label>Monthly</ion-label>
+    <!-- <label class="custom-control-label" for="customCheck1">End of Cycle</label> -->
+  </div>
+</form>
+
+</div>
+<!--------------------------------->
+<ion-label style="    margin-left: 40px;" class="label">Payout Method:</ion-label>
+
+<div class="col-12 ">
+  <form class="d-flex justify-content-between align-items-center px-5"  radio-group [(ngModel)]="payment_transaction"  [ngModelOptions]="{standalone: true}">
+    <div class="custom-control custom-checkbox mb-3">
+      <ion-radio checked="true" value="0" mode="md"> </ion-radio>
+      <ion-label>Automatic</ion-label>
+      <!-- <input type="checkbox" class="custom-control-input" id="customCheck2" name="example1">
+      <label class="custom-control-label" for="customCheck2">Automatic</label> -->
+    </div>
+    <div class="custom-control custom-checkbox mb-3">
+      <ion-radio checked="true" value="1" mode="md"></ion-radio>
+      <ion-label>Manual</ion-label>
+      <!-- <input type="checkbox" class="custom-control-input" id="customCheck3" name="example2">
+      <label class="custom-control-label" for="customCheck3">Manual</label> -->
+    </div>
+  </form>
+  
+  </div>
+
+<div class="col-12 mt-4 mb-5 text-center">
+  <button type="submit" class="form-control text-center confirm-btn btn btn-default btn-lg" (click)='newFormcycel()' [disabled]="!newCycleForm.valid">Create New Box</button>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

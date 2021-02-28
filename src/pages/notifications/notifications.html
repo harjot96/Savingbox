@@ -1,0 +1,134 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>notifications</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="chat-outer">
+    <div class="container">
+      <div class="row pt-5" *ngIf="notidata.length>0">
+    <!------------list 1--------->        
+    <div class="col-12 pb-3" *ngFor="let data of notidata">
+      <div>
+        <div style="display: flex;
+        justify-content: space-between;">
+          <ion-thumbnail item-start>
+            <img class="rounded-circle" src="assets/img/profile-picc.png" *ngIf="data.image == '' || data.image ==null" width="20px">
+            <img class="rounded-circle" src="{{data.image}}"  *ngIf="data.image != '' && data.image != null" width="20px">
+           </ion-thumbnail>
+          <div><h2 style="    margin: 8px 0px;
+            font-size: 15px;">{{data.name}}</h2> 
+          </div>
+          <div>
+            <div class="d-flex justify-content-center align-items-center p-2" *ngIf="data.status == '0'">
+              <i class="fa fa-times mr-3" aria-hidden="true" (click)="accept_reject('0',data.invitation_id)"></i>
+            <i class="fa fa-check" aria-hidden="true" (click)="accept_reject('1',data.invitation_id)"></i></div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center p-2" *ngIf="data.status != '0'">
+            <p *ngIf="data.status == '1'">Accepted</p>
+            <p *ngIf="data.status == '2'">Rejected</p>
+
+        </div>
+      </div>
+        <p style="margin-top: 10px;">{{data.message}} </p>
+        <!-- <span style="color:#b5b3b3;font-size: 10px;">{{data.time | timeAgo}}</span> -->
+      </div>
+      </div> 
+      
+      
+     
+  <!-- <div class="col-12 pb-3">
+    <ion-list>
+      <ion-item class="pl-0">
+        <ion-thumbnail item-start>
+          <img class="rounded-circle" src="assets/img/profile-picc.png" width="20px">
+        </ion-thumbnail>
+        <div><h2>"Best Friends"</h2> 
+        </div>
+      </ion-item>
+      <p class="p-0">Lorem ipsum is a placeholder</p>
+      <span style="color:#b5b3b3;font-size: 10px;">20 mins</span>
+    </ion-list>
+    </div>    
+       <div class="col-12 pb-3">
+        <ion-list>
+          <ion-item class="pl-0">
+            <ion-thumbnail item-start>
+              <img class="rounded-circle" src="assets/img/profile-picc.png" width="20px">
+            </ion-thumbnail>
+            <div><h2>Elwin Champlin</h2> 
+            </div>
+          </ion-item>
+          <p class="p-0">Lorem ipsum is a placeholder text commonly  demonstrate</p>
+          <span style="color:#b5b3b3;font-size: 10px;">20 mins</span>
+        </ion-list>
+        </div> 
+          <div class="col-12 pb-3">
+            <ion-list>
+              <ion-item class="pl-0">
+                <ion-thumbnail item-start>
+                  <img class="rounded-circle" src="assets/img/profile-picc.png" width="20px">
+                </ion-thumbnail>
+                <div><h2>Elwin Champlin</h2> 
+                </div>
+              </ion-item>
+              <p class="p-0">Lorem ipsum is a placeholder</p>
+              <span style="color:#b5b3b3;font-size: 10px;">20 mins</span>
+            </ion-list>
+            </div>   
+          <div class="col-12 pb-3">
+            <ion-list>
+              <ion-item class="pl-0">
+                <ion-thumbnail item-start>
+                  <img class="rounded-circle" src="assets/img/profile-picc.png" width="20px">
+                </ion-thumbnail>
+                <div><h2>Elwin Champlin</h2> 
+                </div>
+              </ion-item>
+              <p class="p-0">Lorem ipsum is a placeholder</p>
+              <span style="color:#b5b3b3;font-size: 10px;">20 mins</span>
+            </ion-list>
+            </div> 
+        <div class="col-12 pb-3">
+            <ion-list>
+              <ion-item class="pl-0">
+                <ion-thumbnail item-start>
+                  <img class="rounded-circle" src="assets/img/profile-picc.png" width="20px">
+                </ion-thumbnail>
+                <div><h2>Elwin Champlin</h2> 
+                </div>
+              </ion-item>
+              <p class="p-0">Lorem ipsum is a placeholder text commonly used to demonstrate</p>
+              <span style="color:#b5b3b3;font-size: 10px;">20 mins</span>
+            </ion-list>
+            </div>  -->
+
+      </div>
+      <div class="col-12 pb-3" *ngFor="let data of paymentList" style="margin-top: 10px;" >
+        <div style="background: #dad4d4;
+        padding: 5px;
+        border-radius: 10px;">
+        <div style="display: flex; justify-content: space-between;">
+          <p style="color: red;">{{data.title}}</p><span><img src="../../assets/img/alert.svg" height="20px" alt=""></span>
+        </div>
+          <p style=" width: 100%;
+          max-width: 100%;">{{data.message}}</p>
+             <div>
+              <div style="display: flex;
+              justify-content: space-evenly;
+              margin: 10px 0px;">
+                <button ion-button style="    width: 150px;
+                border-radius: 10px; color:#fff !important" (click)="payPayment(data)">Pay</button>
+              </div>
+            </div>
+      </div>
+      </div>
+      <div class="nodata" *ngIf="notidata.length==0 && paymentList.length==0 ">
+        <img src="../../assets/img/noNotification.svg" alt="">
+        <h4> No Notification Found.</h4>
+      </div>
+  </div>
+  </div>
+</ion-content>

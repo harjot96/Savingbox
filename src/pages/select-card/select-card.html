@@ -1,0 +1,33 @@
+
+
+<!-- <ion-select >
+</ion-select> -->
+<div class="inner" *ngIf="cards?.length">
+<p>{{paymentInfo.message}}</p>
+
+  <h6 *ngIf="cards?.length">Select Card</h6>
+  <ion-select  placeholder="Please select card" [(ngModel)]="cardData" >
+    <ion-option *ngFor="let data of cards" [value]="data" >{{data.brand}} XXXX-XXXX-{{data.last4}}</ion-option>
+  </ion-select>
+
+  <div *ngIf="cards?.length" style="    display: flex;
+  justify-content: space-evenly;margin-top: 50px;">
+   <button ion-button (click)="close()">Cancel</button>
+   <button ion-button (click)="payment()">Proceed</button>
+
+  </div>
+</div>
+
+<div class="inner" *ngIf="!cards?.length">
+<p>{{paymentInfo.message}}</p>
+
+<div>
+  <img src="../../assets/img/payment.svg" alt="">
+</div>
+<h5 style="text-align: center;margin-top: 16px;">No Card Found</h5>
+<div style="text-align: center;">
+<button ion-button style="    width: 180px;
+margin-top: 30px;" (click)="close()">Close</button>
+
+</div>
+</div>

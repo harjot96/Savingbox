@@ -1,0 +1,66 @@
+page-my-profile {
+    .my-profile{
+        .top{
+            background-color: $primary-color;
+            .text-white{
+               letter-spacing: 1px;
+            }
+            .rounded-circle{
+               border: 2px solid #fff;
+            }
+            .header{
+              .text-white{
+                .toolbar-title {
+                  color: #fff !important;
+                }
+              }
+            }
+        }
+        .side{
+           background: #fff;
+           height: 40px;
+           width: 40px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           border-radius: 50%;
+           i{
+              color: $primary-color;
+              font-size: 20px;
+           }
+           i.fa.fa-commenting-o {
+               font-size: 20px;
+           }
+        }
+        .below{
+           .border-bottom {
+               border-bottom: 1px solid rgba(238, 238, 238, 0.31) !important;
+           }
+           .item-inner{
+               border-bottom: none;
+           }
+           .label-md {
+                margin: 10px 8px 5px 0;
+            }
+            ion-label{
+                color:$primary-color;
+                font-size: 14px !important;
+                .text-black{
+                    color:#000;
+                    margin-top: 3px;
+                }
+            }
+            label.text-black {
+                color: #000;
+            }
+            .fa-angle-right {
+                font-size: 22px;
+                color: $primary-color;
+            }
+        }
+    }
+    small{
+        letter-spacing: 1px;
+    }
+
+}

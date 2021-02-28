@@ -1,0 +1,117 @@
+<!--
+  Generated template for the WalletpagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-section">
+  <!-- <ion-navbar>
+    <ion-title><ion-icon name="arrow-back"></ion-icon> </ion-title>
+  </ion-navbar> -->
+</ion-header>
+
+<ion-content padding class="wallet">
+  <ion-card>
+
+    <ion-card-header>
+      <h4>Savings Box Wallet</h4>
+    </ion-card-header>
+  
+    <ion-card-content class="wallet-balance">
+        <h2><span><img src="assets/img/wallet.png"/></span>
+          <span class="wallet-heading">Wallet Balance</span></h2>
+        <p>${{walletCash | number:'1.2-2'}}</p>
+        <button ion-button full (click)="tranferAmount()">Transfer Amount</button>
+    </ion-card-content>
+  
+  </ion-card>
+
+
+  <ion-card>
+
+    <ion-card-header>
+      <h4>Payment History</h4>
+    </ion-card-header>
+  
+    </ion-card> 
+
+
+    <div style="text-align: center;" *ngIf="!transaction?.length">
+      <img height="230px" src="../../assets/img/transaction.svg" alt="">
+      <p> No Payment History</p>
+    </div>
+
+
+    <!-- <ion-card class="monthly-date">
+      <ion-card-content>
+        <h5>October, 2020</h5>
+        </ion-card-content>
+    </ion-card> -->
+
+
+    <ion-card>
+      <ion-card-content  class="history">
+        <ion-grid>
+          <ion-row class="transfer-amount" *ngFor="let data of transaction">
+            <ion-col col-9> 
+              <p class="amount-data">Amount Transferred to {{data.account_name}}</p>
+                <p><span> {{convertTime(data.date)}}</span></p>
+            </ion-col>
+            <ion-col col-3><p class="amount"> $ {{data.amount | number:'1.2-2'}}</p></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+  
+  </ion-card>
+
+<!-- 
+  <ion-card class="monthly-date">
+    <ion-card-content>
+      <h5>September, 2020</h5>
+      </ion-card-content>
+  </ion-card>
+
+    <ion-card>
+      <ion-card-content class="history">
+        <ion-grid>
+          <ion-row class="transfer-amount">
+            <ion-col col-9> 
+              <p class="amount-data">Amount Transfered to Deepak</p>
+                <p><span>Yesterday, 05:45 pm</span></p>
+            </ion-col>
+            <ion-col col-3><p class="amount">- $ 100</p></ion-col>
+          </ion-row>
+
+          <ion-row class="transfer-amount">
+            <ion-col col-9> 
+              <p class="amount-data">Amount Transfered to A/c no. xxxx-489</p>
+                <p><span>Yesterday, 05:45 pm</span></p>
+            </ion-col>
+            <ion-col col-3><p class="amount">- $ 100</p></ion-col>
+          </ion-row>
+
+          <ion-row class="transfer-amount">
+            <ion-col col-9> 
+              <p class="amount-data">Amount Transfered to Deepak</p>
+                <p><span>Yesterday, 05:45 pm</span></p>
+            </ion-col>
+            <ion-col col-3><p class="amount">- $ 100</p></ion-col>
+          </ion-row>
+
+          <ion-row class="transfer-amount">
+            <ion-col col-9> 
+              <p class="amount-data">Amount Transfered to A/c no. xxxx-489</p>
+                <p><span>Yesterday, 05:45 pm</span></p>
+            </ion-col>
+            <ion-col col-3><p class="amount">- $ 100</p></ion-col>
+          </ion-row>
+
+          
+
+
+        </ion-grid>
+      </ion-card-content>
+  
+  </ion-card>  -->
+
+</ion-content>

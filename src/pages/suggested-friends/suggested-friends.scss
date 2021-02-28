@@ -1,0 +1,99 @@
+page-suggested-friends {
+    .toolbar-content-ios{
+        display:flex;
+    }
+    .toolbar-content-md{
+        display:flex;
+    }
+    .searchbar-ios .searchbar-input{
+        padding: 5px !important;
+        height: 40px !important;
+    }
+    .header-md::after{
+        background-image: none !important
+        ;
+    }
+    .toolbar-background { background: transparent;}
+    .searchbar-md .searchbar-input{
+        padding: 5px !important;
+        height: 40px !important;
+    }
+    .suggested-frds {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        width: 100%;
+        margin-top: 20px;
+        position: relative;
+        .next{
+          font-size: 24px;
+            text-align: right;
+            margin-right: 16px;
+        }
+        .title{
+          margin: 20px 0;
+        }
+        img.rounded-circle {
+            width: 50px !important;
+            height: 50px !important;
+        }
+        .list-md {
+            margin: -1px 0 0;
+        }
+        .label-md {
+            margin: 6px 8px 6px 0;
+        }
+        .item-md ion-thumbnail[item-start] {
+            margin: 2px 16px 2px 0;
+        }
+        .container {
+            margin: 0 auto;
+        }
+        .item-inner{
+            padding-right: 0 !important;
+        }
+        .item-md ion-thumbnail {
+            min-width: auto;
+            min-height: auto;
+        }
+        .logo img{
+            width: 280px;
+            object-fit: contain;
+        }
+        p {
+            color: #777;
+            text-align:left;
+            b{
+                color: #fff;
+            }
+        }
+        .item-md .item-button {
+            border: 2px solid $primary-color;
+            padding: 9px 13px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .check-button{
+            border: 2px solid #e54744;
+            padding: 1px 9px;
+            border-radius: 10px;
+            text-align: center;
+            height: 21px;
+            ion-icon {
+                font-size: 20px;
+                margin :0 !important;
+              font-weight: bolder !important;
+              
+            }
+         
+        }
+        .button-ios{
+            color: #E54744;
+background-color: transparent;
+border-color: #E54744;
+border: 2px solid;
+border-radius: 15px;
+        }
+
+    }
+}

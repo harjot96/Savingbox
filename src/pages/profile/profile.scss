@@ -1,0 +1,50 @@
+page-profile {
+    .btn{
+        width: 100%;
+    text-align: center;
+    margin-top: 43px;
+    }
+ .user-detail{
+     .top{
+         background-color: $primary-color;
+         .text-white{
+            letter-spacing: 1px;
+         }
+         .rounded-circle{
+            border: 2px solid #fff;
+         }
+     }
+     .side{
+        background: #fff;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        i{
+           color: $primary-color;
+        }
+        i.fa.fa-commenting-o {
+            font-size: 20px;
+        }
+     }
+     .below{
+        .border-bottom {
+            border-bottom: 1px solid rgba(238, 238, 238, 0.31) !important;
+        }
+        small{
+            letter-spacing: 1px;
+        }
+     }
+ }
+ .chat-profile{
+    text-align: center;
+    border: 1px solid #e54744;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 6px 15px;
+    background: #e54744;
+    color: white;
+ }
+}

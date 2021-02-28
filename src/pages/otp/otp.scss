@@ -1,0 +1,173 @@
+    page-otp {
+        .forget {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            width: 100%;
+            background-color: #e54744 !important;
+            .title{
+              margin: 20px 0;
+            }
+            .inner-sign{
+                flex:1;
+               }
+            .container {
+                margin: 0 auto;
+                // background-color: #e54744 !important;
+            }
+            .form-control:focus {
+                border-color: transparent;
+                box-shadow: none;
+            }
+            .form-group {
+                margin-bottom: 2rem;
+            }
+            form {
+                margin: 0 auto;
+                max-width: 500px;
+                width: 100%;
+                text-align: center;
+            }
+            .logo img{
+                width: 280px;
+                object-fit: contain;
+            }
+            ::placeholder {
+                color: #b6b6b6 !important;
+            }
+            p {
+                color: #fff;
+                text-align: center;
+                b{
+                    color: #fff;
+                }
+            }
+            input {
+                font-size: 15px !important;
+                width: 100%;
+                border-radius: 10px;
+                border: none;
+                box-shadow: none;
+                height: 45px;
+                padding: 10px 10px;
+                border: 2px solid #dbdbdb;
+            }
+            .signup-btn.forgt {
+                background: $primary-color;
+                color:#fff;
+            }
+            .d-flex{
+                width:100%;
+                height:100%;
+            }
+        }
+     
+    }
+    page-otp .forget .signup-btn.forgt {
+        background: #fff;
+        color: #e54744;
+    }
+    page-otp .forget form {
+        margin: 0 auto;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+    // ion-content {
+    //       display: flex;
+    //     -webkit-box-orient: vertical;
+    //     -webkit-box-direction: normal;
+    //     -webkit-flex-direction: column;
+    //     -ms-flex-direction: column;
+    //     flex-direction: column;
+    //     min-height: 100%;
+    //     width: 100%;
+    //     background-color: #e54744 !important;
+    // }
+
+    page-otp {
+        .forget {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            width: 100%;
+            background-color: #e54744 !important;
+            .title{
+              margin: 20px 0;
+            }
+            .inner-sign{
+                flex:1;
+               }
+            .container {
+                margin: 0 auto;
+                // background-color: #e54744 !important;
+            }
+            .form-control:focus {
+                border-color: transparent;
+                box-shadow: none;
+            }
+            .form-group {
+                margin-bottom: 2rem;
+            }
+            form {
+                margin: 0 auto;
+                max-width: 500px;
+                width: 100%;
+                text-align: center;
+            }
+            .logo img{
+                width: 280px;
+                object-fit: contain;
+            }
+            ::placeholder {
+                color: #b6b6b6 !important;
+            }
+            p {
+                color: #fff;
+                text-align: center;
+                b{
+                    color: #fff;
+                }
+            }
+            input {
+                font-size: 15px !important;
+                width: 100%;
+                border-radius: 10px;
+                border: none;
+                box-shadow: none;
+                height: 45px;
+                padding: 10px 10px;
+                border: 2px solid #dbdbdb;
+            }
+            .signup-btn.forgt {
+                background: $primary-color;
+                color:#fff;
+            }
+            .d-flex{
+                width:100%;
+                height:100%;
+            }
+        }
+     
+    }
+    page-otp .forget .signup-btn.forgt {
+        background: #fff;
+        color: #e54744;
+    }
+    page-otp .forget form {
+        margin: 0 auto;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+    // ion-content {
+    //       display: flex;
+    //     -webkit-box-orient: vertical;
+    //     -webkit-box-direction: normal;
+    //     -webkit-flex-direction: column;
+    //     -ms-flex-direction: column;
+    //     flex-direction: column;
+    //     min-height: 100%;
+    //     width: 100%;
+    //     background-color: #e54744 !important;
+    // }

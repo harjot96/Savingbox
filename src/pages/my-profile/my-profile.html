@@ -1,0 +1,86 @@
+<ion-content>
+  <div class="my-profile">
+    <div class="container">
+      <div class="row top pt-5 pl-5 pr-5 pb-0 align-items-center">
+        <div class="col-12 p-0 mb-5 header d-flex justify-content-center align-items-center">
+            <ion-title class="text-center text-white">My Profile</ion-title>
+        </div>
+        <div class="col-3 d-flex p-0 justify-content-center" (click)="logout()">
+          <div class="side">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="col-6 text-center ">
+          <img *ngIf="profile_pic == ''" class="rounded-circle" src="assets/img/profile-picc.png" width="80px">
+          <img *ngIf="profile_pic !=''" class="rounded-circle" src="{{profile_pic}}" width="80px" style="height: 85px;">
+        </div>
+        <div class="col-3 d-flex p-0 justify-content-center">
+          <div class="side" (click)="gotoEditProfile()">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="row top pt-3 pb-5">
+        <div class="col-12 text-center">
+          <p class="p-0 mb-0"><b class="text-white">{{userData.name}}</b></p>
+          <small class="text-white" *ngIf="userData?.address!= null">{{userData?.address}}</small>
+        </div>
+      </div>
+      <div class="row below pt-3">
+        <div class="col-12 border-bottom pb-3">
+          <ion-item class="p-0">
+            <ion-label>
+              Email
+              <small class="d-block text-black">{{userData?.email}}</small>
+            </ion-label>
+            <ion-toggle color="primary" name="emailStatus" [(ngModel)]="emailStatus" (ionChange)="updateStatus('email',emailStatus)"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="col-12 border-bottom pb-3" *ngIf="userData?.mobile!=null && userData?.mobile">
+          <ion-item class="p-0">
+            <ion-label>
+              Mobile
+              <small class="d-block text-black">+{{userData?.dial_code}}{{userData?.mobile}}</small>
+            </ion-label>
+            <ion-toggle color="primary" name="mobileStatus" [(ngModel)]="mobileStatus" (ionChange)="updateStatus('mobile',mobileStatus)"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="col-12 border-bottom pb-3" *ngIf="userData?.gender!=null && userData?.gender">
+          <ion-item class="p-0">
+            <ion-label>
+              Gender
+              <small class="d-block text-black">{{userData?.gender}}</small>
+            </ion-label>
+            <ion-toggle color="primary" name="genderStatus" [(ngModel)]="genderStatus" (ionChange)="updateStatus('gender',genderStatus)"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="col-12 border-bottom pb-3" *ngIf="userData?.date_of_birth!=null && userData?.date_of_birth">
+          <ion-item class="p-0"> 
+            <ion-label>
+              Date of Birth
+              <small class="d-block text-black">{{getDateofbirth(userData?.date_of_birth)}}</small>
+            </ion-label>
+            <ion-toggle color="primary" name="dobStatus" [(ngModel)]="dobStatus" (ionChange)="updateStatus('date_of_birth',dobStatus)"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="col-12 border-bottom pt-3 pb-3 pr-5 d-flex justify-content-between" (click)="gotoPaymentMethod()">
+          <label class="text-black"> Payment Method</label>
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+        <div class="col-12 border-bottom pt-3 pb-3 pr-5 mb-4 d-flex justify-content-between"  (click)="gotoChangePassword()">
+            <label class="text-black">Change Password</label>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+        <div class="col-12 border-bottom pt-3 pb-3 pr-5 mb-4 d-flex justify-content-between"  (click)="gotoPrivacyPolicy()">
+          <label class="text-black">Privacy Policy</label>
+          <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </div>
+      <div class="col-12 border-bottom pt-3 pb-3 pr-5 mb-4 d-flex justify-content-between"  (click)="Suport()">
+        <label class="text-black">Support</label>
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

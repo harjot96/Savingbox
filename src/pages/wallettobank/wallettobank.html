@@ -1,0 +1,77 @@
+<!--
+  Generated template for the WallettobankPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-section">
+  <ion-navbar>
+    <!-- <ion-title><ion-icon name="arrow-back"></ion-icon> </ion-title> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="wallet">
+  <ion-card>
+
+    <ion-card-header>
+      <h4>Send Money from Wallet <br>to Bank</h4>
+    </ion-card-header>
+    <ion-card-content class="wallet-balance">
+      <p><span> ${{amount | number:'1.2-2'}}</span></p>
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <ion-card>
+
+    <ion-card-header class="select-bank">
+      <h4>Select a Saved Bank</h4>
+    </ion-card-header>
+
+  </ion-card>
+
+
+  <ion-card class="monthly-date">
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row class="input-radio">
+          <ion-col col-12>
+            <ion-list radio-group [(ngModel)]="autoManufacturers" [ngModelOptions]="{standalone: true}">
+              <!-- <ion-radio-group > -->
+              <ion-item *ngFor="let data of bankAccount">
+                <ion-label>{{data.account_name}}<br><span>A/c No. XXXX-XXXX-{{slice(data.account_no)}}</span>
+                </ion-label><br>
+                <ion-radio [value]="data.bank_id"></ion-radio>
+              </ion-item>
+              <!-- </ion-radio-group> -->
+            </ion-list>
+            <!-- <input type="radio" id="male" name="gender" value="male" onblur="myFunction()"> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <div style=" padding: 17px 17px 0px 17px;">
+      <input placeholder="Enter transfer amount" type="tel" currencyMask
+        [options]="{ prefix: '$ ', thousands: ',', decimal: '.' }" [(ngModel)]="transferamount" style="    border: 1px solid grey;
+      text-align: center;
+      width: 100%;
+      height: 50px;
+      font-size: 20px;">
+    </div>
+    <ion-card-content class="wallet-balance">
+      <button ion-button full (click)="save()">Proceed</button>
+      <h6>OR</h6>
+      <button ion-button full (click)="addAccount()">Add New Account</button>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>240353357660-aj8rqdiiu4ibmpbidb3nc611p6n3i2bm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.240353357660-aj8rqdiiu4ibmpbidb3nc611p6n3i2bm</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>240353357660-u67345csutkodn4htareui6ief4o66i8.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD41uH49EtflzccB_UkVu9tCatVFH4foKs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>240353357660</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rcubinity.savingboxapp</string>
+	<key>PROJECT_ID</key>
+	<string>savingbox</string>
+	<key>STORAGE_BUCKET</key>
+	<string>savingbox.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:240353357660:ios:2c83a086816a9e855c5b99</string>
+	<key>DATABASE_URL</key>
+	<string>https://savingbox.firebaseio.com</string>
+</dict>
+</plist>

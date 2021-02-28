@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="signin-outer">
+    <div class="inner-sign">
+      <div class="container">
+        <p class="title">Sign In</p>
+        <div class="logo text-center">
+          <img src="/assets/img/logo.jfif">
+        </div>
+        <form [formGroup]="signinForm" style="height:100% !important;">
+        <div class="row mt-5">
+          <div class="col-12">
+  
+              <div class="form-group text-center">
+                <input type="email" class="form-control text-center" placeholder="Email" id="email" formControlName="email">
+                <p class="error" *ngIf="signinForm.get('email').hasError('required') && signinForm.get('email').touched">Enter email address.</p>
+              <p class="error" *ngIf="signinForm.get('email').hasError('pattern') && signinForm.get('email').touched">Invalid email address.</p>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control text-center" placeholder="Password" id="pwd" formControlName="password">
+              <p class="error" *ngIf="signinForm.get('password').hasError('required') && signinForm.get('password').touched">Enter password.</p>
+              </div>
+              <br /><br />
+              <button type="submit" class="form-control text-center signup-btn btn btn-default btn-lg"
+                (click)="gotoTabs()" [disabled]="!signinForm.valid"><b>Sign In</b></button><br /><br />
+              <p (click)="forgetPassword()">Forgot password?</p>
+            <br />
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+    <span class="text-center" *ngIf="showsocialLogin">OR</span><br />
+    <div class="signin-via mb-5" *ngIf="showsocialLogin">
+      <a (click)="checkFblogin()" class="facebk"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+      <a (click)="doGoogleLogin()" class="google-ps"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+    </div>
+    <p (click)="gotoSignup()">Don't have an account? <b>Sign Up</b></p>
+  </div>
+</ion-content>

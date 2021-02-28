@@ -1,0 +1,200 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left (click)="goBack()" *ngIf="profile_status =='1'">
+      <button ion-button icon-only class="my-style-for-modal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="profile_status =='1'">Edit profile</ion-title>
+    <ion-title *ngIf="profile_status =='0'">Create profile</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="user-details">
+    <div class="inner-sign">
+      <div class="container">
+        <div class="row mt-5">
+          <form [formGroup]="profileForm">
+            <div class="col-12 user-img text-center" (click)="selectImage()">
+              <img *ngIf="imageUpload ==''"
+                class="rounded-circle "
+                src="assets/img/profile-picc.png"
+                width="50px"
+              />
+              <img *ngIf="imageUpload !=''"
+              class="rounded-circle profile"
+              src="{{imageUpload}}"
+              width="50px"
+            />
+              <i class="fa fa-plus" aria-hidden="true" ></i>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label>Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Full name"
+                  formControlName="name"
+                />
+                <p class="profile-error" *ngIf="profileForm.get('name').hasError('required') && profileForm.get('name').touched">Enter name.</p>
+     
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="email@gmail.com"
+                  formControlName="email"
+                  disabled = true
+                />
+              </div>
+              <div class="form-group">
+                <label>Mobile</label>
+                <!-- <label>Mobile</label>
+                <input id="signin-phone-no" type="hidden" placeholder="Mobile" formControlName="dailcode">
+                <input type="text" id="signin-mobileno" formControlName="phone" placeholder="9874512630"   minlength="9" maxlength="12"> -->
+             <ion-row>
+              <ion-col col-3>
+                <ion-select [disabled]="profile_status =='1' ? '' : null" placeholder="+" [(ngModel)]="code" [ngModelOptions]="{standalone: true}">
+                  <ion-option *ngFor="let i of paisCode" [value]="i.code">+{{i.code}}
+                  </ion-option>
+                </ion-select>
+              </ion-col>
+              <ion-col col-9>
+                <input type="text" id="signin-mobileno" formControlName="phone"  [attr.disabled]="profile_status =='1' ? '' : null"  placeholder="9874512630"   minlength="9" maxlength="12">
+                <p class="profile-error" *ngIf="profileForm.get('phone').hasError('required') && profileForm.get('phone').touched">Enter phonenumber.</p>
+     
+              </ion-col>
+            </ion-row>
+                <!-- <input id="profile-phone-no" type="hidden" placeholder="Mobile" formControlName="dailcode">(keyup)="updatephone($event)" 
+                <input type="text" id="profile-mobileno" formControlName="phone" placeholder="9874512630" minlength="9"
+                maxlength="15"> -->
+              </div>
+              <div class="form-group">
+                <label>Location</label>
+                <ion-searchbar
+                  lines="none"
+                  class="form-control"
+                  placeholder="Address"
+                  formControlName="address"
+                  [showCancelButton]="false"
+                  (ionInput)="updateSearch()"
+                  (ionCancel)="dismiss()"
+                >
+                </ion-searchbar>
+                <p class="profile-error" *ngIf="profileForm.get('address').hasError('required') && profileForm.get('address').touched">Enter address.</p>
+     
+                <!-- <ion-searchbar  class="form-control"  placeholder="address" formControlName="address" (ionInput)="updateSearch()" ></ion-searchbar> -->
+                <!-- <input type="search"> -->
+              </div>
+              <div *ngIf="autocompleteItems.length>0" class="search-content">
+                <ion-label class="label-select">Select Address</ion-label>
+                <ion-item
+                  *ngFor="let item of autocompleteItems"
+                  tappable
+                  (click)="chooseItem(item)"
+                >
+                  {{ item }}
+                </ion-item>
+              </div>
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <div style="position: relative;">
+                  <ion-datetime
+                    value="2019-10-01T15:43:40.394Z"
+                    display-timezone="utc"
+                    placeholder="Feb 20, 2020"
+                    formControlName="dob"
+                    displayFormat="MM-DD-YYYY"
+                    pickerFormat="MM-DD-YYYY"
+                  >
+                  </ion-datetime>
+                  <p class="profile-error" *ngIf="profileForm.get('dob').hasError('required') && profileForm.get('dob').touched">Select Date of birth</p>
+     
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Gender</label>
+                <div style="position: relative;">
+                  <ion-select
+                    formControlName="gender"
+                    placeholder="Gender"
+                    id="gender"
+                  >
+                    <ion-option value="male">Male</ion-option>
+                    <ion-option value="female">Female</ion-option>
+                  </ion-select>
+                  <p class="profile-error" *ngIf="profileForm.get('gender').hasError('required') && profileForm.get('gender').touched">Select gender.</p>
+     
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Postal Code</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Postal Code"
+                  formControlName="postalcode"
+
+                />
+              </div>
+
+              <div class="form-group">
+                <label>City</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="City"
+                  formControlName="city"
+                />
+              </div>
+              <div class="form-group">
+                <label>State</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="State"
+                  formControlName="state"
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Country</label>
+                <div style="position: relative;">
+                  <ion-select
+                    formControlName="country"
+                    placeholder="Country"
+                    id="gender"
+                  >
+                    <ion-option [value]="data.abbreviation" *ngFor="let data of countryCode">
+                      {{data.country}}
+                    </ion-option>
+                  </ion-select>
+                  <p class="profile-error" *ngIf="profileForm.get('gender').hasError('required') && profileForm.get('gender').touched">Select gender.</p>
+     
+                </div>
+              </div>
+              <div class="form-group" *ngIf="profile_status =='1'">
+               <button ion-button outline color="danger" style="width: 70%; margin-top: 25px;" (click)="uploadDocs()">Upload Docs</button>
+              </div>
+
+              <br /><br />
+              <button (click)="editProfile()"
+                class="form-control text-center confirm-btn btn btn-default btn-lg"
+                [disabled]="!profileForm.valid"
+              >
+                Save</button
+              ><br /><br />
+              <br />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

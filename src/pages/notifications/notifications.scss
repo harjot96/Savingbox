@@ -1,0 +1,101 @@
+page-notifications {
+    
+    h4{
+        width: 100%;
+    }
+    .nodata{
+        text-align: center;
+        margin-top: 100px;
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        p{
+            width: 100%;
+            text-align: center !important;
+            font-size: 18px !important;
+            margin-top: 50px;
+        }
+    }
+    .chat-outer {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        width: 100%;
+        .title{
+          margin: 20px 0;
+        }
+        .item-md{
+            h2{
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+        } 
+        img.rounded-circle {
+            width: 30px !important;
+            height: 30px !important;
+        }
+        .list-md {
+            margin: -1px 0 0;
+        }
+        .label-md {
+            margin: 6px 8px 6px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .item-md ion-thumbnail[item-start] {
+            margin: 2px 16px 2px 0;
+        }
+        .container {
+            margin: 0 auto;
+        }
+        .item-inner{
+            padding-right: 0 !important;
+        }
+        .item-md ion-thumbnail {
+            min-width: auto;
+            min-height: auto;
+        }
+        .logo img{
+            width: 280px;
+            object-fit: contain;
+        }
+        p {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 12px;
+            text-align:left;
+            margin-bottom: 0;
+            max-width: 240px;
+            b{
+                color: #fff;
+            }
+        }
+        span{
+            font-size: 15px;
+            color: #a9a9a9;
+        }
+        i.fa {
+            font-size: 16px;
+            font-weight: 200 !important;
+        }
+        .fa-check:before {
+            color: $primary-color;
+            border: 1px solid $primary-color;
+            border-radius: 50%;
+            padding: 3px;
+        }
+        .fa-times:before {
+            border: 1px solid #a9a9a9;
+            padding: 3px 5px;
+            border-radius: 50%;
+            color:#a9a9a9;
+        }
+        .item-inner {
+            border-bottom: none !important;
+        }
+        ion-label{
+            display:flex;
+           align-items: center;
+        }
+    }
+}

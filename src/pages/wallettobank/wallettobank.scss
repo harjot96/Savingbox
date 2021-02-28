@@ -1,0 +1,132 @@
+page-wallettobank {
+    .scroll-content{
+        padding:0px !important;
+    }
+
+    .header-section .title{
+        padding:15px;
+    }
+
+    .header-section .title .toolbar-title-ios{
+        text-align:left;
+    }
+ 
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+        background: none !important;
+        border: 0;
+    }
+ 
+ 
+    .scroll-content .card{
+        border: 0;
+        box-shadow: 0 0 black;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .scroll-content .card .card-header{
+        background: none;
+        padding: 0;
+        border: 0;
+    }
+
+    
+    .scroll-content .card .card-header h4{
+        margin: 10px;
+        padding-top: 0;
+        text-align: center;
+        width: 100%;
+        font-size: 21px;
+        font-weight: bold;
+        border: 0;
+        margin-top: 0;
+    }
+
+        .wallet ion-card-header h4{
+            color: #e54744;
+        }
+
+      
+
+        .wallet-balance .wallet-heading{
+            position: relative;
+            top: 7px;
+        }
+
+        .wallet-balance p{
+            font-size: 32px;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        
+        .wallet-balance p span{
+            border-bottom:1px solid #d0d0d0;
+        }
+
+        .wallet-balance button{
+            border-radius: 5px;  
+            margin-top: 10px;
+            font-size: 17px;
+            background:#e54744;
+        }
+
+        .select-bank{
+            margin-top:30px;
+        }
+        .select-bank h4{
+            text-align:left !important;
+        }
+
+        .monthly-date{
+            background: #eeeeee;
+            padding: 0;
+            color: #5d5d5d;
+            margin:0;
+            width:100% !important;
+        }
+
+        .monthly-date .card-content{
+            padding:13px 30px 14px !important;
+        }
+
+
+        .input-radio label{
+            font-size: 16px;
+            font-weight: 600;
+            color: #5d5d5d;
+            margin-left:20px;
+        }
+        
+        .input-radio label span{
+            font-size: 14px;
+            font-weight: 600;
+            color: #9c9c9c;
+        }
+        
+
+        .input-radio .col{
+            position: relative;
+        }
+
+        .input-radio input{
+            position: absolute;
+            top:8px;
+        }
+       
+       
+        .wallet-balance h6{
+            color: #5d5d5d;
+            font-size:18px;
+            text-align:center;
+            margin-top:10px;
+        }
+
+        ion-icon {
+            font-size: 30px;
+            color: #e54744;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+}
